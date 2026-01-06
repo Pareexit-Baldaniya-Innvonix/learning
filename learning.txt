@@ -50,6 +50,13 @@ git log  --> show the history of the repo
 -> anyone can clone repositories
 
 # git clone  --> use for cloning the repository
+
+# steps to update data on GitHub
+
+1. git status
+2. git add <filename>
+3. git commit -m "<message>"
+4. git push origin main
 +--------------------------------------------------------------------------------------------------------------------+
 
 # Variables and data types:
