@@ -348,11 +348,10 @@ product = reduce(lambda x, y : x * y, numbers) --> o/p = 24
 +--------------------------------------------------------------------------------------------------------------------+
 
 # Virtual Environment(venv):
-
 -> it's an isolated working directory
 
 # use:
--> conflict prevention  --> saperate dependency for defferent project
+-> conflict prevention  --> saperate dependencies for defferent project
 -> no admin rights  --> install any packages without sudo and admin permission
 -> Reproducibility  --> easily share which library is needed for project
 
@@ -375,11 +374,41 @@ $ Deactivate
 +--------------------------------------------------------------------------------------------------------------------+
 
 # Dependency Management(pip):
+-> standard package installer
+-> installing libraries and dependencies from PyPI
+-> at the installation time it is basic dependency manager, not an advanced one
+
+# How pip manages dependencies
+
+1. Installation  --> install all required packages and its dependencies
+2. Dependency resolution  --> check for compitible version
+3. Version planning and Reproducibility  --> managing dependencies
+4. Virtual environment  --> used to seperately install the dependencies
 
 +--------------------------------------------------------------------------------------------------------------------+
 
-# Debugging Tools(pdb):
+# Debugging Tools(pdb - The Python Debugger):
+-> tool for Debugging python program
+-> it allows to set breakpoints, step through code, inspect varibles, and control execution flow
+
+# How to start pdb:
+
+1. Insert a breakpoint in code
+-> use the built-in funcion point (Python 3.7+)
+-> insert import pdb; pdb.set_trace() at the desired line
+-> at the execution time it stops here and open pdb prompt
+
+2. from the command line
+-> run script under debugger using the -m flag
+$ python -m pdb script.py
+
+3. Post-mortem():
+-> to inspect the state after program crash
+$ pdb.post_mortem() or pdb.pm()
 
 +--------------------------------------------------------------------------------------------------------------------+
 
 # Collaboration(Conflict Resolver):
+
+
++--------------------------------------------------------------------------------------------------------------------+
