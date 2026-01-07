@@ -305,6 +305,44 @@ print(m.sqrt(25))
 
 # Generator/Iterator:
 
+1. Iterators:
+-> it remembers a place while moving through a collection
+-> list, string, dict, set, tuple all are iterables
+-> whenever we runs a for loop it secretly convert tha tlist into iterator
+-> it can grab items one by one
+
+# Methods:
+
+1. iter()  --> converts item into iterator
+2. next()  --> grab the next item, once item grabbed, it's gone from the queue
+
+Ex.
+fruits = ['apple', 'banana', 'cherry']
+item = iter(fruits)
+
+print(next(item))  --> o/p = apple
+print(next(item))  --> o/p = banana
+print(next(item))  --> o/p = cherry
+print(next(item))  --> o/p = StopIteration error
+
+2. Generators:
+-> a simple way to generate a iterator using function
+
+# Methods:
+
+1. yield()  --> it is like pause and handover button
+
+Ex.
+def count_to_two():
+    yield 1
+    yield 2
+    yield 3
+
+generator = count_to_two()
+
+print(next(generator))  --> o/p = 1
+print(next(generator))  --> o/p = 2
+
 +--------------------------------------------------------------------------------------------------------------------+
 
 # Decorators:
