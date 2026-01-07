@@ -74,7 +74,7 @@ git log  --> show the history of the repo
 # control flow:
 
 1. if
--> used execute block of code if specific condition is true
+-> used to execute block of code if specific condition is true
 
 Ex.
 a = 5
@@ -97,6 +97,7 @@ else:
 
 Ex.
 a = 15
+
 if a == 5:
     print("a is equal to 5")
 elif a == 10:
@@ -109,14 +110,27 @@ else:
 
 Ex.
 a = 10
-print("a is equal to 5" if a == 5 else "a is not equal to 5")
 
+print("a is equal to 5" if a == 5 else "a is not equal to 5")
 
 +--------------------------------------------------------------------------------------------------------------------+
 
 # Functions:
 
+-> block of code which only runs when it is called
+-> avoid code repetition
 
+--> Syntax
+
+def functionName():
+    # code
+
+Ex.
+def get_greetings():
+    return "Hello from a functon"
+
+message = get_greetings
+print(message)
 
 +--------------------------------------------------------------------------------------------------------------------+
 
@@ -198,3 +212,64 @@ with open('file1.txt', 'w') as file:  --> with statement automatically close the
     file.write("Hello")
 
 print("File written successfully")
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Modules:
+
+-> file containing Python code
+
+-> three types:
+1. built-in
+-> already built in the python
+
+Ex.
+import math  --> import entire module
+print(math.sqrt(25))
+
+2. user-defined
+-> this are the Python files created by users, used in different parts of the project
+
+Ex.
+from math import sqrt, pi  --> import specific item from a module 
+print(sqrt(25))
+print(pi)
+
+3. External(Third Party)
+-> need to install it using package managers like pip
+
+Ex.
+import math as m  --> import with an alis
+print(m.sqrt(25))
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# OOPs:
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Generator/Iterator:
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Decorators:
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# List operations:
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Virtual Environment
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Dependency Management(pip):
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Debugging Tools(pdb):
+
++--------------------------------------------------------------------------------------------------------------------+
+
+# Collaboration(Conflict Resolver):
