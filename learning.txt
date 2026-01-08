@@ -364,11 +364,6 @@ class penguin(bird):
     def fly(self):
         print("penguin can't fly")
 
-Ex.
-class ():
-    def ():
-        print("")
-
 6. Abstraction:
 -> hides the implementation process, only showing essential features
 
