@@ -11,9 +11,8 @@ class Car:
         self.model = model
         self.year = year
 
-    def __str__(self):
-        return (f"Car Details: {self.make}'s model {self.model} from year {self.year}.")
-
 # Task 3:
 Car_details = Car("BMW", "M4", 2026)
-print(Car_details)
+print(Car_details.make)
+print(Car_details.model)
+print(Car_details.year)
