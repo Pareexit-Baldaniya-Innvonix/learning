@@ -51,8 +51,25 @@ conn.close()
 
 
 # mysql -u root -p --> for connecting to the MySQL  ## here pass is only pressing 'enter' key
-# -> show database; --> for checking all available databases
+# -> show databaseS; --> for checking all available databases
 # -> show tables; --> for checking all available tables in database
 # -> status; --> for full info of database
 # -> use database_name --> for switch to that database
 # -> select * from database_name; --> for getting all tables
+
+
+# different ways to delete database:
+# 1. manual:
+# -> DROP DATABASE DATABASE_NAME;  --> quick terminal work
+# -> DROP DATABASE IF EXISTS DATABASE_NAME
+# -> directly delete through the terminal
+
+# 2. programmatic:
+# -> cursor.execute("DROP DATABASE IF EXISTS DATABASE_NAME")  --> automation
+# -> uses a connector library to delete database through script
+# -> automatically delete the database
+
+# 3. shell utility:
+# -> mysqladmin -u root -p drop database_name  --> quick deletion usind linux cmd
+# -> also delete database through terminal but ask before proceeding
+# -> delete database without entering into mysql
