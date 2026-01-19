@@ -1,0 +1,5 @@
+root - DEBUG - This is a debug message
+root - INFO - The program started successfully!
+root - WARNING - This is a warning message
+root - ERROR - An error occured
+root - CRITICAL - The system has crashed
