@@ -1,10 +1,12 @@
-### Day 1
+# AdvancePython Learning
+
+## Day 1
 
 Task 1:
 - Class: Blueprint of the object
 - Objest: Actual instance(interface) of the class
 
-### Day 2
+## Day 2
 
 Task 1: simple constructure
 - method namely `__init__` used to set up the initial state of the object
@@ -37,7 +39,7 @@ Task 3:
     - useful because allow to add "rules" before change
     - take self, value as a first arguments
 
-### Day 3
+## Day 3
 
 Task 1:
 Nested(Inner) class means a class inside a class
@@ -83,7 +85,7 @@ super():
     - need of atleast two classes
     - inheritance always required
 
-### Day 4
+## Day 4
 
 Task 1: Modules
 - modules are like a code library
@@ -99,7 +101,7 @@ Task 3: Decorators
 - Decorators lets add extra behaviour to a function, without changing the function code
 - it is a function that takes another function as input, and returns a function
 
-### Day 5
+## Day 5
 
 Task 1:
 1. Process:
@@ -112,7 +114,7 @@ Task 1:
     - a process can spawn multiple threds
     - all threads within the process can share a same memory
 
-### Day 6
+## Day 6
 
 Task 1: Types of exception
 - an unexpected event that occurs during program execution
@@ -188,7 +190,7 @@ Task 4: 'with' statement in file handling
 1. `__enter__()`  --> opens the file
 2. `__exit__()`  --> ensures file colses automatically
 
-### Day 7
+## Day 7
 
 Task 1: Decorators
 - decorators are function that takes function and return it with some additional functionalities
@@ -225,7 +227,7 @@ Task 4: built-in decorators are like a 'tags' that python provides
     - build-in decorator from the functools library
     - speeding up complex problems
 
-### Day 8
+## Day 8
 
 Task 1: Pickling
 - this is the process of converting a object into byte stream
@@ -256,7 +258,7 @@ finally:
     code
 ```
 
-### Day 9
+## Day 9
 
 Task 1: 
 - database is a collection of data which is stored electronically
