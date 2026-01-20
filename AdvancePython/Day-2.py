@@ -1,8 +1,6 @@
 # Day 2: Constructors and Methods
 
 # Task 1: simple constructure
-# -> method namely __init__ used to set up the initial state of the object
-
 class Toy:
     def __init__(self):
         self.name = "Bear"
@@ -26,10 +24,6 @@ print(movie.cinema)
 
 # Task 3:
 # 1. Instance method:
-# -> used to access or change data belonging to a specific object
-# -> always take self as a first argument
-# -> use for describing action to specific item
-
 class Car:
     def __int__(self):
         self.color = "Blue"
@@ -38,11 +32,6 @@ class Car:
         print(f"the car is {self.color}")
 
 # 2. Class Method:
-# -> belongs to class itself
-# -> used to see and change the things which affect every object created from that class
-# -> using @classmethod decorator
-# -> take cls as first argument
-
 class Car:
     total_cars = 0
 
@@ -54,21 +43,12 @@ class Car:
         return f"total cars build: {cls.total_cars}"
     
 # 3. Static Method:
-# -> related to class
-# -> they don't need to know anything about class and object
-# -> used as a general tool
-# -> use @staticmethod
-
 class Car:
     @staticmethod
     def isMotorized():
         return True
     
 # 4. Accessors:
-# -> used to access a piece of data without changing it
-# -> @property decorator used for it
-# -> take self as a first argument
-
 class Car:
     def __init__(self, brand):
         self._brand = brand
@@ -78,10 +58,6 @@ class Car:
         return self._brand.upper()
     
 # 5. Mutators:
-# -> used to change a piece of data
-# -> useful because allow to add "rules" before change
-# -> take self, value as a first arguments
-
 class Car:
     def __init__(self, speed):
         self._speed = speed
@@ -104,10 +80,10 @@ class Car:
         self.model = model
         self.year = year
 
-Car_details = Car("BMW", "M4", 2026)
-print(Car_details.make)
-print(Car_details.model)
-print(Car_details.year)
+carDetails = Car("BMW", "M4", 2026)
+print(carDetails.make)
+print(carDetails.model)
+print(carDetails.year)
 
 # Task 5:
 class Car:
@@ -122,8 +98,8 @@ class Car:
         current_year = 2026
         return current_year - self.year
 
-Car_details = Car("BMW", "M4", 2024)
-print(Car_details.make)
-print(Car_details.model)
-print(Car_details.year)
-print(Car_details.age)
+details = Car("BMW", "M4", 2024)
+print(details.make)
+print(details.model)
+print(details.year)
+print(details.age)

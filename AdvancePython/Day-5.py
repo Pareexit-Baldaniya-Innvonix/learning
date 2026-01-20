@@ -1,30 +1,19 @@
 # Day 5: Multithreading and Multiprocessing
 
-# Task 1:
-# 1. Process:
-# -> it is a instance of the program
-# -> they do not share the memory
-# -> they are independent from each other
-
-# 2. Thread:
-# -> it's an entity in the process that can be schedule for execution
-# -> a process can spawn multiple threds
-# -> all threads within the process can share a same memory
-
 # Task 2:
 import threading
 import time
 
-def square(num):
+def Square(num):
     print(f"Square: {num*num}")
     time.sleep(1)
 
-def cube(num):
+def Cube(num):
     print(f"Cube: {num*num*num}")
     time.sleep(1)
 
-t1 = threading.Thread(target = square, args = (4, ))
-t2 = threading.Thread(target = cube, args = (4, ))
+t1 = threading.Thread(target = Square, args = (4, ))
+t2 = threading.Thread(target = Cube, args = (4, ))
 
 t1.start()
 t2.start()
@@ -75,7 +64,7 @@ def download_image(url):
     except Exception as e:
         print(f"Error downloading {url}: {e}")
 
-image_urls = [
+ImageUrls = [
     "https://via.placeholder.com/600/92c952",
     "https://via.placeholder.com/600/771796",
     "https://via.placeholder.com/600/24f355",
@@ -85,7 +74,7 @@ image_urls = [
 
 if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers = 5) as executor:
-        executor.map(download_image, image_urls)
+        executor.map(download_image, ImageUrls)
 
     print("\nAll downloads completed!")
 
