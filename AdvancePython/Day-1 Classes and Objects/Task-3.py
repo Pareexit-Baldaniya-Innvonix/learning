@@ -1,7 +1,4 @@
-# Day 1: Classes and Objects
-
-
-# Task 2:
+# Task 3: Instantiate object from the class
 class Car:
     def __init__(self, make, model, year):
         self.make = make
@@ -9,7 +6,6 @@ class Car:
         self.year = year
 
 
-# Task 3:
 details = Car("BMW", "M4", 2026)
 print(details.make)
 print(details.model)
