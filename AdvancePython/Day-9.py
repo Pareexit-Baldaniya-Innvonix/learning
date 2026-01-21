@@ -4,10 +4,7 @@
 import mysql.connector
 
 conn = mysql.connector.connect(
-    user = "root",
-    host = "localhost",
-    passwd = "",
-    database = "test"
+    user="root", host="localhost", passwd="", database="test"
 )
 
 cursor = conn.cursor()
@@ -18,5 +15,5 @@ AGE INT,
 CITY CHAR(30)
 )"""
 
-cursor.execute(records)  
+cursor.execute(records)
 conn.close()

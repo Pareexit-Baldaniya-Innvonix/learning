@@ -4,16 +4,19 @@
 import threading
 import time
 
+
 def Square(num):
     print(f"Square: {num*num}")
     time.sleep(1)
+
 
 def Cube(num):
     print(f"Cube: {num*num*num}")
     time.sleep(1)
 
-t1 = threading.Thread(target = Square, args = (4, ))
-t2 = threading.Thread(target = Cube, args = (4, ))
+
+t1 = threading.Thread(target=Square, args=(4,))
+t2 = threading.Thread(target=Cube, args=(4,))
 
 t1.start()
 t2.start()
@@ -27,12 +30,14 @@ print("Done!")
 import multiprocessing
 import os
 
+
 def check_task():
     print(f"task running in process id: {os.getpid()}")
 
+
 if __name__ == "__main__":
-    p1 = multiprocessing.Process(target = check_task)
-    p2 = multiprocessing.Process(target = check_task)
+    p1 = multiprocessing.Process(target=check_task)
+    p2 = multiprocessing.Process(target=check_task)
 
     p1.start()
     p2.start()
@@ -46,16 +51,17 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 import os
 
-os.makedirs("downloaded_images", exist_ok = True)
+os.makedirs("downloaded_images", exist_ok=True)
+
 
 def download_image(url):
     try:
         filename = os.path.join("downloaded_images", url.split("/")[-1])
         print(f"Starting download: {url} (Thread: {threading.current_thread().name})")
 
-        response = requests.get(url, timeout = 10)
+        response = requests.get(url, timeout=10)
         if response.status_code == 200:
-            with open(filename, 'wb') as f:
+            with open(filename, "wb") as f:
                 f.write(response.content)
             print(f"Successfully saved to {filename}")
         else:
@@ -64,16 +70,17 @@ def download_image(url):
     except Exception as e:
         print(f"Error downloading {url}: {e}")
 
+
 ImageUrls = [
     "https://via.placeholder.com/600/92c952",
     "https://via.placeholder.com/600/771796",
     "https://via.placeholder.com/600/24f355",
     "https://via.placeholder.com/600/d32776",
-    "https://via.placeholder.com/600/f66b97"
+    "https://via.placeholder.com/600/f66b97",
 ]
 
 if __name__ == "__main__":
-    with ThreadPoolExecutor(max_workers = 5) as executor:
+    with ThreadPoolExecutor(max_workers=5) as executor:
         executor.map(download_image, ImageUrls)
 
     print("\nAll downloads completed!")
@@ -82,8 +89,10 @@ if __name__ == "__main__":
 import multiprocessing
 import time
 
+
 def compute_square(num):
     return num * num
+
 
 if __name__ == "__main__":
     dataset = list(range(10000000))

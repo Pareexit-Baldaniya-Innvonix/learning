@@ -1,13 +1,16 @@
 # Day 6: Advanced Topics and Integration
 
+
 # Exceptions:
 class ValueToHighError(Exception):
     pass
 
+
 def check_value(n):
     if n > 100:
         raise ValueToHighError("Value must be 100 or less!")
-    
+
+
 try:
     check_value(200)
 except ValueToHighError as e:
@@ -30,10 +33,10 @@ finally:
 import logging
 
 logging.basicConfig(
-    level = logging.DEBUG,
-    filename = 'app.log',
-    filemode = 'w',
-    format = '%(name)s - %(levelname)s - %(message)s'
+    level=logging.DEBUG,
+    filename="app.log",
+    filemode="w",
+    format="%(name)s - %(levelname)s - %(message)s",
 )
 
 logging.debug("This is a debug message")
@@ -45,13 +48,16 @@ logging.critical("The system has crashed")
 # Task 3: Event
 import tkinter as tk
 
+
 class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Event Handler Demo")
 
-        self.label = tk.Label(root, text = "Press any key or click me!", font = ("Arial", 14))
-        self.label.pack(pady = 50, padx = 50)
+        self.label = tk.Label(
+            root, text="Press any key or click me!", font=("Arial", 14)
+        )
+        self.label.pack(pady=50, padx=50)
 
         self.label.bind("<Button-1>", self.on_click)
 
@@ -59,11 +65,12 @@ class App:
 
     def on_click(self, event):
         print(f"Mouse clicked at: x = {event.x}, y = {event.y}")
-        self.label.config(text = "Mouse Clicked!", fg = "blue")
+        self.label.config(text="Mouse Clicked!", fg="blue")
 
     def on_key(self, event):
         print(f"Key pressed: {event.char}")
-        self.label.config(text = f"You pressed: {event.char}", fg = "red")
+        self.label.config(text=f"You pressed: {event.char}", fg="red")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
