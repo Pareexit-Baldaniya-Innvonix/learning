@@ -10,7 +10,7 @@ class A:
 
 class B:
     def func1(self):
-        print("Modified feature 1 of calss A by class B")
+        print("Modified feature 1 of class A by class B")
 
     def func3(self):
         print("Feature 3 of calss B")
