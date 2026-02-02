@@ -1,4 +1,11 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str 
+    description: str | None = None
+    price: float
+    tax: float | None = None
 
 app = FastAPI()
 
@@ -6,6 +13,6 @@ app = FastAPI()
 def greet():
     return {"message": "Hello FastAPI!"}
 
-@app.post("/greet")
-def greet_user(name: str):
-    return {"message": "Hello, " + name + "!"}
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
