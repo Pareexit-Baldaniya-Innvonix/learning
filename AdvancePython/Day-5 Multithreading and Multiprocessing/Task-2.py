@@ -3,23 +3,23 @@ import threading
 import time
 
 
-def Square(num):
+def square(num: int) -> None:
     print(f"Square: {num*num}")
     time.sleep(1)
 
 
-def Cube(num):
+def cube(num: int) -> None:
     print(f"Cube: {num*num*num}")
     time.sleep(1)
 
 
-t1 = threading.Thread(target=Square, args=(4,))
-t2 = threading.Thread(target=Cube, args=(4,))
+square_thread = threading.Thread(target=square, args=(4,))
+cube_thread = threading.Thread(target=cube, args=(4,))
 
-t1.start()
-t2.start()
+square_thread.start()
+cube_thread.start()
 
-t1.join()
-t2.join()
+square_thread.join()
+cube_thread.join()
 
 print("Done!")

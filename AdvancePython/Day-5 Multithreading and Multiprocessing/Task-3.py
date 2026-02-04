@@ -3,16 +3,18 @@ import multiprocessing
 import os
 
 
-def check_task():
+def check_task() -> None:
     print(f"task running in process id: {os.getpid()}")
 
 
 if __name__ == "__main__":
-    p1 = multiprocessing.Process(target=check_task)
-    p2 = multiprocessing.Process(target=check_task)
+    first_process = multiprocessing.Process(target=check_task)
+    second_process = multiprocessing.Process(target=check_task)
 
-    p1.start()
-    p2.start()
+    first_process.start()
+    second_process.start()
 
-    p1.join()
-    p2.join()
+    first_process.join()
+    second_process.join()
+
+    print("Process finished.")

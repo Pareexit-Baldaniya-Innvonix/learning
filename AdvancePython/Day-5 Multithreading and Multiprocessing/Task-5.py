@@ -3,7 +3,7 @@ import multiprocessing
 import time
 
 
-def compute_square(num):
+def compute_square(num: int) -> int:
     return num * num
 
 

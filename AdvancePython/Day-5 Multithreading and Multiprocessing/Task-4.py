@@ -4,15 +4,16 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 import os
 
-os.makedirs("downloaded_images", exist_ok=True)
+image_dir = "AdvancePython/Day-5 Multithreading and Multiprocessing/downloaded_images"
+os.makedirs(image_dir, exist_ok=True)
 
 
-def download_image(url):
+def download_image(url: str) -> None:
     try:
-        filename = os.path.join("downloaded_images", url.split("/")[-1])
+        filename = os.path.join(image_dir, url.split("/")[-1])
         print(f"Starting download: {url} (Thread: {threading.current_thread().name})")
 
-        response = requests.get(url, timeout = 30)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
         if response.status_code == 200:
             with open(filename, "wb") as f:
@@ -25,16 +26,20 @@ def download_image(url):
         print(f"Error downloading {url}: {e}")
 
 
-urls = [
-    "https://picsum.photos/id/237/200/300.jpg",
-    "https://picsum.photos/id/238/200/400.jpg",
-    "https://picsum.photos/id/239/200/500.jpg",
-    "https://picsum.photos/id/240/200/600.jpg",
-    "https://picsum.photos/id/241/200/700.jpg",
-]
+def main() -> None:
+    urls = [
+        "https://picsum.photos/id/237/200/300.jpg",
+        "https://picsum.photos/id/238/200/400.jpg",
+        "https://picsum.photos/id/239/200/500.jpg",
+        "https://picsum.photos/id/240/200/600.jpg",
+        "https://picsum.photos/id/241/200/700.jpg",
+    ]
 
-if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers=5) as executor:
         executor.map(download_image, urls)
 
     print("\nAll downloads completed!")
+
+
+if __name__ == "__main__":
+    main()
