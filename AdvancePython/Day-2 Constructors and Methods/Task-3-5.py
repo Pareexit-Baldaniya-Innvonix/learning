@@ -10,14 +10,12 @@ class Car:
 
     @speed.setter  # the mutator
     def speed(self, value: int) -> None:
-        if value < 0:
-            print("Speed can not be negative")
-        else:
-            self._speed = value
+        assert value >= 0, "Speed cannot be negative"
+        self._speed = value
 
 
 my_car = Car(60)
 my_car.speed = 80  # uses the setter
 print(f"Car running at {my_car.speed} km/h.")
 
-my_car.speed = -10  # checks the validation logic
+my_car.speed = -10  # checks the validation(mutator) logic and gives assertion error
