@@ -15,10 +15,12 @@ class Calculator:
 
     @staticmethod
     def div(a: int, b: int) -> float:
+        assert b != 0, "Value cannot divide by zero"  # only the divisor cannot be 0
         return a / b
 
 
 print(f"Addition: {Calculator.add(10, 5)}")
 print(f"Subtraction: {Calculator.sub(10, 5)}")
 print(f"Multiplication: {Calculator.mul(10, 5)}")
-print(f"Division: {Calculator.div(10, 8)}")
+print(f"Division: {Calculator.div(10, 5)}")
+print(f"Division: {Calculator.div(10, 0)}")
