@@ -1,17 +1,30 @@
 # Task 3:
 # 3. Method overloading:
-def add_values(datatype: str, *args: any) -> None:
-    if datatype == "int":
-        answer = 0
-    elif datatype == "str":
-        answer = ""
+def add_values(*args: any) -> None:
+    if not args:
+        print("No argument provided!")
+        return
+
+    first_arg = args[0]
+
+    if isinstance(first_arg, int):
+        result = 0
+    elif isinstance(first_arg, str):
+        result = ""
     else:
-        print(f"Different datatype!")
+        print(f"Unsupported datatype: {type(first_arg).__name__}")
+        return
 
-    for x in args:
-        answer += x
-    print(answer)
+    try:
+        for x in args:
+            result += x
+        print(result)
+    except TypeError:
+        print(f"Error: all arguments must be of the same type.")
 
 
-add_values("int", 5, 6)
-add_values("str", "Hello ", "World")
+if __name__ == "__main__":
+    add_values(5, 6)
+    add_values("Hello ", "World")
+    add_values(1.2, 1.4)
+    add_values(10, "mixed")
