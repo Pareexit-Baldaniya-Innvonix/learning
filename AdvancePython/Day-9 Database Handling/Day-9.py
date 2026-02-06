@@ -1,19 +1,23 @@
 import mysql.connector
+import os
 
-DB_INFO = "AdvancePython/Day-9 Database Handling/.env"
+db_config = {
+    "host": os.getenv("DB_HOST"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "database": os.getenv("DB_NAME"),
+}
 
-with open(DB_INFO) as f:
-    config = dict(
-        line.strip().split("=", 1)
-        for line in f
-        if "=" in line and not line.startswith("#")
+missing_keys = [k for k, v in db_config.items() if v is None]
+if missing_keys:
+    raise ValueError(
+        f"Missing environment variables: {', '.join(missing_keys)}. Remember to run with F5!"
     )
 
 
 try:
-    conn = mysql.connector.connect(
-        host=config["DB_HOST"], user=config["DB_USER"], password=config["DB_PASSWORD"]
-    )
+    conn = mysql.connector.connect(**db_config)
     print(f"Connected successfully!")
-except KeyError as e:
-    print(f"Missing key in .env: {e}")
+    conn.close()
+except mysql.connector.Error as e:
+    print(f"Error: {e}")
