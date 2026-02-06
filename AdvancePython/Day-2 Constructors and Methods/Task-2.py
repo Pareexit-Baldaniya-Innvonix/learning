@@ -6,7 +6,7 @@ class Type(Enum):
     ACTION = "Action"
     COMEDY = "Comedy"
     ROMANCE = "Romance"
-    HORROR = "Rorror"
+    HORROR = "Horror"
 
 
 class Movie:
