@@ -1,5 +1,5 @@
 # Task 5 — Price calculator (*args + **kwargs)
-def checkout(*prices: float, **options: any) -> float:
+def checkout(*prices: int | float, **options: any) -> float:
     discount = options.get("discount", 0) / 100
     tax = options.get("tax", 0) / 100
 

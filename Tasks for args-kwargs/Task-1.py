@@ -1,5 +1,5 @@
 # Task 1 — Sum any number of numbers (*args)
-def sum_all(*args: int) -> int:
+def sum_all(*args: list[int]) -> int:
     result = 0
     for x in args:
         result += x
