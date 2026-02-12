@@ -50,7 +50,7 @@ async def greet_after_delay():
 asyncio.run(greet_after_delay())
 ```
 
-Let's understand Here what happened here:
+Let's understand what happens here:
 
 1. `asyncio.run()` creates an event loop
 2. Event loop starts `greet_after_delay()`
