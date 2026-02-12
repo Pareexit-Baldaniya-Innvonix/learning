@@ -1,8 +1,12 @@
 # Task-4: Same as task 3, but only 3 downloads will run simultaneously
 import asyncio
 import aiohttp
+import aiofiles
 from pathlib import Path
 from typing import List, Optional
+
+DOWNLOAD_DIR = Path("Tasks for async-await/downloaded_images")
+MAX_CONCURRENT_DOWNLOADS = 3
 
 URLs: List[str] = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDCoZOlY05iDyrVnJGfFwE6aSL_YObRf8YTQ&s",
@@ -19,7 +23,7 @@ async def download_image(
     filename: str,
     semaphore: asyncio.Semaphore,
 ) -> Optional[Path]:
-    # semafore used for doing specific number of downloades at once
+    # semafore used for doing specific number of downloads at once
     async with semaphore:
         try:
             print(f"Downloading: {filename}")
@@ -29,11 +33,10 @@ async def download_image(
                 content = await response.read()
 
                 # saving downloaded images
-                output_path = Path("Tasks for async-await/downloaded images") / filename
-                output_path.parent.mkdir(parents=True, exist_ok=True)
+                output_path = DOWNLOAD_DIR / filename
 
-                with open(output_path, "wb") as f:
-                    f.write(content)
+                async with aiofiles.open(output_path, "wb") as f:
+                    await f.write(content)
 
                 print(f"Downloaded: {filename}")
                 return output_path
@@ -44,19 +47,23 @@ async def download_image(
 
 
 async def main() -> None:
-    print("Starting download with 3 simultaneously downloads")
+    DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)  # create directory if not exists
 
-    # give limit of 3 downloads at a time
-    semaphore = asyncio.Semaphore(3)
+    print(f"Starting download with {MAX_CONCURRENT_DOWNLOADS} simultaneously downloads")
+
+    # limit to 3 downloads at a time
+    semaphore = asyncio.Semaphore(MAX_CONCURRENT_DOWNLOADS)
 
     async with aiohttp.ClientSession() as session:
         tasks = [
             download_image(session, url, f"image-{i+1}.jpg", semaphore)
             for i, url in enumerate(URLs)
         ]
-        await asyncio.gather(*tasks)
+        results = await asyncio.gather(*tasks)
 
-    print("Download completed!")
+    print(
+        f"Download completed! Successfully saved {len([r for r in results if r])} images."
+    )
 
 
 if __name__ == "__main__":
