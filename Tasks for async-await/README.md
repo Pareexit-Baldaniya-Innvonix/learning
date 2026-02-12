@@ -38,7 +38,7 @@ async def function_name():
 - The event loop starts via `asyncio.run(main())`
 ---
 
-### How  event loop works?
+### How event loop works?
 ```
 import asyncio
 
