@@ -33,11 +33,11 @@ def main() -> None:
     process2 = multiprocessing.Process(target=run_in_loop, args=(p2_tasks,))
 
     print("Starting processes...")
-    process1.start()  # start thread1
-    process2.start()  # start thread2
+    process1.start()  # start process1
+    process2.start()  # start process2
 
-    process1.join()  # wait for first thread to finish
-    process2.join()  # wait for second thread to finish
+    process1.join()  # wait for first process to finish
+    process2.join()  # wait for second process to finish
 
     print("All processes have completed!")
 
